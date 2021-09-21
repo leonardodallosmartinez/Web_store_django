@@ -5,12 +5,12 @@ from django.db.models.fields.related import create_many_to_many_intermediary_mod
 class Servicio(models.Model):
     titulo = models.CharField(max_length=50)
     contenido = models.CharField(max_length=50)
-    imagen = models.ImageField() # para usar ImageField() se debe installar el modulo Pillow (pip install Pillow)
-    created = models.DateField(auto_now_add=True) # Fecha que se agrega automaticamente
-    updated = models.DateField(auto_now_add=True)
+    imagen = models.ImageField(upload_to='servicios') # para usar ImageField() se debe installar el modulo Pillow (pip install Pillow) // upload_to: crea una subcarpeta en la carpeta de MEDIA_URL py guarda ahi el contenido multimedia
+    created = models.DateTimeField(auto_now_add=True) # Fecha que se agrega automaticamente // DateTime solo resulta en la fecha sin hora
+    updated = models.DateTimeField(auto_now_add=True)
 
     class Meta:  # clase para definir los parametros meta de la tabla/modelo 
-        verbose_name = 'servicio' # isualizacion en el panel.
+        verbose_name = 'servicio' # visualizacion en el panel.
         verbose_name_plural = 'servicios'
 
     def __str__(self): # mostrar informacion del modelo al ser consultado mediante el shell

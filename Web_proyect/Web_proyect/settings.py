@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-us' # cambiado, original 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -120,6 +120,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/' # añadido para guardar contenido mutimedia¿ de las DDBB
+MEDIA_ROOT=BASE_DIR / 'media' # añadido para acceder a contenido mutimedia guardado de las DDBB
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
