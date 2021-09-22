@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/' # añadido para guardar contenido mutimedia¿ de las DDBB
+MEDIA_URL = '/media/' # añadido para guardar contenido mutimedia de las DDBB
 MEDIA_ROOT=BASE_DIR / 'media' # añadido para acceder a contenido mutimedia guardado de las DDBB
 
 # Default primary key field type
