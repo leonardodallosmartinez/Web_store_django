@@ -13,9 +13,7 @@ def tienda(request):
 
     return render(request, 'tienda.html')
 
-def blog(request):
 
-    return render(request, 'blog.html')
 
 def contacto(request):
 

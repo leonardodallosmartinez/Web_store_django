@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block titlee %}blog{% endblock %}
+{% block content %}
+
+{% for post in posts %}
+<section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+
+        {% if post.imagen %}
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="" style="width: 50%;">
+
+        {% else %}
+        <!-- <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="https://odinstore.co/wp-content/uploads/2020/12/CamisetaMetallicaRockon.jpg" alt="" style="width: 50%;"> -->
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'web_app/img/CamisetaMetallicaRockon.jpg' %}" alt="" style="width: 50%;">
+
+        {% endif %}
+
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower">{{post.titulo}}</span>
+            <span class="section-heading-upper">{{post.contenido}}</span>
+          </h2>
+          <div style="text-align: left; font-size: 0.8em;">
+            <p><b>Autor:</b>  {{post.autor}}</p>
+            <p><b>Categoria:</b>
+                    {% for categoria in post.categoria.all %}
+                        {{categoria.nombre}}, 
+                    {% endfor %}
+            </p>           
+          </div>
+          
+         
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+
+
+  {% endfor %}
+ </section>
+
+ <!-- Seccion para seleccionar las categorias -->
+<section">
+    <div style="width: 75%; background-color: rgb(85, 199, 134); color: rgb(26, 10, 10); text-align: center; margin: auto;">
+        Categorias: 
+        {% for post in posts %}
+            {% for categoria in post.categoria.all.distinct %}
+                {{categoria.nombre}} 
+            {% endfor %} &nbsp;&nbsp;
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

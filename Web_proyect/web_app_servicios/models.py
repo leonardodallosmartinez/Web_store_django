@@ -7,7 +7,7 @@ class Servicio(models.Model):
     contenido = models.CharField(max_length=50)
     imagen = models.ImageField(upload_to='servicios') # para usar ImageField() se debe installar el modulo Pillow (pip install Pillow) // upload_to: crea una subcarpeta en la carpeta de MEDIA_URL py guarda ahi el contenido multimedia
     created = models.DateTimeField(auto_now_add=True) # Fecha que se agrega automaticamente // DateTime solo resulta en la fecha sin hora
-    updated = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True) # auto_now_add: agrega la fecha de creacio, auto_now: agrega la fecha de actualizacion.
 
     class Meta:  # clase para definir los parametros meta de la tabla/modelo 
         verbose_name = 'servicio' # visualizacion en el panel.
