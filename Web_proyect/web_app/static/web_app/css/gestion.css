@@ -285,3 +285,19 @@ ul.errorlist{
 .linksCategorias:hover{
   text-decoration: none;
 }
+
+.contenedorFormulario{
+  color: white;
+  background-color: rgba(176, 202, 165, 0.8);
+  width: 50%;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 10px 5px;
+}
+
+.contenedorFormulario table{
+  color: rgb(39, 58, 38);
+}
+.contenedorFormulario form{
+  text-align: center;
+}

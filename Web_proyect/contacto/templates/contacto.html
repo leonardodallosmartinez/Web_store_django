@@ -4,8 +4,18 @@
 {% block titlee %}contacto{% endblock %}
 {% block content %}
    <section>
-       <div>
-           <table style="color: white;">{{formulario_contacto.as_table}}</table> <!--form.as_table: renderiza en forma de tabla, form.as_ul en lista y form.as_p como bloques de parrafo. IMportante encerrarlo con la respectiva etiqueta html.-->
+        {% if 'valido' in request.GET %}
+
+       <div style="color: white;">La informacion ha sido enviada correctamente.</div>
+        {% endif %}
+
+       <div class="contenedorFormulario">
+           <form action="" method="post">{% csrf_token %} <!--medida de seguridad para evitar suplantacion de envío de informacion mediane forms-->
+               <table style="margin: 10px auto;">{{formulario_contacto.as_table}}</table> <!--form.as_table: renderiza en forma de tabla, form.as_ul en lista y form.as_p como bloques de parrafo. IMportante encerrarlo con la respectiva etiqueta html.-->
+                <button type="submit" style="margin-top: 5px; width: 150px; border-radius: 10px;">Enviar</button>
+                <button type="reset" style="margin-top: 5px; width: 150px; border-radius: 10px;">Borrar</button>
+            </form>
        </div>
+       <!-- <p style="color: white;">{{request.POST}}</p> -->
    </section>
 {% endblock %}
