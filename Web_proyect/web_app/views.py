@@ -13,8 +13,4 @@ def tienda(request):
 
     return render(request, 'tienda.html')
 
-
-
-def contacto(request):
-
-    return render(request, 'contacto.html')  
+ 

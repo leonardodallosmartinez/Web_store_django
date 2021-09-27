@@ -266,7 +266,7 @@ a.link:hover{
 }
 
 .section-content{
-  font-family: 'Lora' !important;
+  font-family: 'Lora' !important; /* important: es para que este estilo sobreecriba a otros posibles para esa clase */
   font-size: 16px !important;
   font-weight: 400 !important;
   line-height: 28px !important;
@@ -276,4 +276,12 @@ ul.errorlist{
   padding-top: .75rem;
   font-style: italic;
   color: red;
+}
+
+.linksCategorias{
+  color: white !important;
+  text-decoration: underline; 
+}
+.linksCategorias:hover{
+  text-decoration: none;
 }

@@ -51,7 +51,7 @@
           <li class="nav-item {% if request.path == '/contacto/' %} active {% endif %} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'contacto' %}">Contacto</a>
           </li>
-          <li class="nav-item {% if request.path == '/blog/' %} active {% endif %} px-lg-4">
+          <li class="nav-item {% if request.path|slice:':6' == '/blog/' %} active {% endif %} px-lg-4"> <!-- !slice:':6' establece que se usan los primeros 6 caracteres del string dado como patron de busqueda, sin impotar lo que pueda haber despues -->
             <a class="nav-link text-uppercase text-expanded" href="{% url 'blog' %}">Blog</a>
           </li>
          
