@@ -7,10 +7,3 @@ def home(request):
 
     return render(request, "home.html")
     # return HttpResponse("home")
-
-
-def tienda(request):
-
-    return render(request, 'tienda.html')
-
- 

@@ -13,6 +13,7 @@ urlpatterns = [
     path('servicios/', include('web_app_servicios.urls')), #llama las urls de la aplicacion servicios
     path('blog/', include('blog.urls')), #llama las urls de la aplicacion blog
     path('contacto/', include('contacto.urls')), #llama las urls de la aplicacion contacto
+    path('tienda/', include('tienda.urls')), # llama las urls de la app tienda
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) # Añadir la ruta del contenido multimedia.
