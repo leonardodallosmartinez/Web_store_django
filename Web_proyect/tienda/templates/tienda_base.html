@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block titlee %}tienda{% endblock %}
+{% block content %}
+{% for producto in productos %}
+<section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+
+        {% if producto.imagen %}
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{producto.imagen.url}}" alt="" style="width: 50%;">
+
+        {% else %}
+        <!-- <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="https://odinstore.co/wp-content/uploads/2020/12/CamisetaMetallicaRockon.jpg" alt="" style="width: 50%;"> -->
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'web_app/img/CamisetaMetallicaRockon.jpg' %}" alt="" style="width: 50%;">
+
+        {% endif %}
+
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower">{{producto.nombre}}</span>
+            <span class="section-heading-upper">Precio: {{producto.precio}}$</span>
+          </h2>
+          <div style="text-align: left; font-size: 0.8em;">
+            <p><b>Disponibilidad:</b>  {{producto.disponibilidad}}</p>
+            <p><b>Categoria:</b>  {{producto.categoria}}</p>           
+          </div>
+          
+         
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+
+
+  {% endfor %}
+ </section>
+
+ <!-- Seccion para seleccionar las categorias -->
+<section">
+    <div style="width: 75%; background-color: rgb(85, 199, 134); color: white; text-align: center; margin: auto;">
+        Categorias: 
+        {% for producto in productos %}
+            {% for categoria in producto.categoria.all.distinct %}
+                <a href="{% url 'categoria' categoria.id %}" class="linksCategorias">{{categoria.nombre}}</a>
+            {% endfor %} &nbsp;&nbsp;
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
