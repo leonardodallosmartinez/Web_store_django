@@ -6,26 +6,27 @@
 
 {% block content %}
 <div class="container-sm">
-<section class="row" style="margin: 20px auto;">
-
-{% for producto in productos %}
-<div class="col-sm-3">
-
-    <div class="card bg-light" style="width: 100%; margin: 10px 5px auto; text-align: center;">
-        <div class="card-header" style="text-transform: uppercase;"><b>Promoción</b></div>
-        <img class="card-img-top" style="height: 20rem; width: 100%;" src="{{producto.imagen.url}}" alt="imagen producto">
-        <div class="card-body">
-            <h4 class="card-title">{{producto.nombre}}</h4>
-            <p class="card-text">{{producto.precio|floatformat:'g'}} $</p> <!--|floatformat:0 es para mostrar la variable float con 0 decimales, |floatformat:'g' muestra separacion de miles-->
-            <a href="#" class="btn btn-outline-primary">Seleccionar</a>
-        </div>
-        <div class="card-footer">Gracias</div>
+    <div style="background-color: darkslategrey; text-align: center; float: right;" class="p-5 my-2 mx-1 mr-3">
+        <p style="color: white;">Aca iria el carrito de compras</p>
     </div>
-</div>
-
-
-{% endfor %}
-</section>
+    <section class="row" style="margin: 20px auto;">
+    {% for producto in productos %}
+        <div class="col-md-4">
+            <div class="card bg-light my-2 mx-1 w-100" style="height: 40rem; text-align: center;">
+                <div class="card-header" style="text-transform: uppercase;"><b>Promoción</b></div>
+                <img class="card-img-top" style="height: 20rem; width: 100%;" src="{{producto.imagen.url}}" alt="imagen producto">
+                <div class="card-body">
+                    <h4 class="card-title">{{producto.nombre}}</h4>
+                    <p class="card-text">{{producto.precio|floatformat:'g'}} $</p> <!--|floatformat:0 es para mostrar la variable float con 0 decimales, |floatformat:'g' muestra separacion de miles-->
+                    <a href="" class="btn btn-outline-primary">Detalles</a>
+                </div>
+                <div class="card-footer">
+                    <a href="" class="btn btn-success">Añadir al carrito</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </section>
 </div>
  <!-- Seccion para seleccionar las categorias -->
 
