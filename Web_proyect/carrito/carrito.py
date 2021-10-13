@@ -5,10 +5,11 @@ class Carrito:
         self.session = request.session
         carrito = self.session.get('carrito')
 
-        if not carrito: # varifica si no existe el carrito, si no existe crea uno nuevo.
+        if not carrito: # verifica si no existe el carrito, si no existe crea uno nuevo.
             carrito = self.session['carrito'] = {}
-        else:
-            self.carrito = carrito
+        # else:
+        #     self.carrito = carrito
+        self.carrito = carrito # de esta manera se asegura que se cree la variable carrito.
 
     def agregar(self, producto): #Agregar productos al carrito, si el producto ya esta agregado no se vuelve a agregar, solo se aumenta su cantidad. Todos los valores de un producto del carrito se dejan como string a excepcion de la cantidad.
         if (str(producto.id) not in self.carrito.keys()): # condicional si el producto no esta en el carro.
@@ -26,7 +27,7 @@ class Carrito:
                     break
         self.guardar_carrito() # guarda el carrito modificado en session.
 
-    def guardar_carrito(self): # guarda el carriot en la variable session
+    def guardar_carrito(self): # guarda el carrito en la variable session
         self.session['carrito'] = self.carrito
         self.session.modified = True # Para que surja efecto la instruccion anterior. | no es necesario si se hace usando la clave de la sesion.
 
