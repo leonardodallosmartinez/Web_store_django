@@ -24,6 +24,7 @@ class Carrito:
             for key, value in self.carrito.items():
                 if key == str(producto.id):
                     value['cantidad'] = value['cantidad'] + 1
+                    value['precio'] = float(value['precio'])+(producto.precio)
                     break
         self.guardar_carrito() # guarda el carrito modificado en session.
 
@@ -32,15 +33,16 @@ class Carrito:
         self.session.modified = True # Para que surja efecto la instruccion anterior. | no es necesario si se hace usando la clave de la sesion.
 
     def eliminar(self, producto):
-        producto_id = str(producto.id)
-        if producto_id in self.carrito:
-            del self.carrito['producto_id']
+        producto.id = str(producto.id)
+        if producto.id in self.carrito:
+            del self.carrito[producto.id]
             self.guardar_carrito()
 
     def restar_producto(self, producto):
         for key, value in self.carrito.items():
                 if key == str(producto.id):
                     value['cantidad'] = value['cantidad'] - 1
+                    value['precio'] = float(value['precio'])-(producto.precio)
                     if value['cantidad'] < 1: # condicional para eliminar el producto si la cantidad es 1 al querer restar.
                         self.eliminar(producto)
                     break
