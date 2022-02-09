@@ -1,7 +1,7 @@
 from django.urls import path
 from carrito import views
 
-app_name = 'carrito' #namespace para llamar este conjunto de urls.
+app_name = 'carrito' #namespace para llamar este conjunto de urls. || app_name: nombre de variable reservado para asignar namespace.
 
 urlpatterns = [
     #path('', views.carrito, name='carrito'),

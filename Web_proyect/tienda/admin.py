@@ -2,7 +2,7 @@ from django.contrib import admin
 from tienda import models
 
 class CategoriaProdAdmin(admin.ModelAdmin):
-    #list_display = ('nombre')
+    list_display = ('nombre', 'created', 'updated')
     search_fields = ('nombre', 'created', 'updated')
     readonly_fields = ('created', 'updated')
 
